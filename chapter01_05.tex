@@ -1,0 +1,47 @@
+\section{Momentum}
+
+\subsection{velocity and momentum}
+We derive the expressions for $\expval{v}$ as well as $\expval{p}$ in this section. From Eq. \tooltip{\ref{eq:1_4_4}}{\parbox{10cm}{
+\begin{equation*}
+    \pdv{}{t}\abs{\Psi}^2  = \pdv{}{x}\qty[\frac{i\hbar}{2m}\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)]
+\end{equation*}}} as well as the fact that 
+\begin{equation*}
+    \expval{x}=\int_{-\infty}^{\infty}x\abs{\Psi(x,t)}^2\dd x,
+\end{equation*} 
+it follows that 
+\begin{align*}
+    \dv{\expval{x}}{t}=\dv{t}\int_{-\infty}^{\infty}x\abs{\Psi(x,t)}^2\dd x = \int_{-\infty}^{\infty}\pdv{t}\qty(x\abs{\Psi(x,t)}^2)\dd x =\int_{-\infty}^{\infty}x\pdv{t}\abs{\Psi(x,t)}^2\dd x
+\end{align*}
+($x$ can be taken out of the partial derivative, since we are differentiating with respect to $t$), substituting in the expression:
+\begin{align*}
+    \int_{-\infty}^\infty x\pdv{t}\abs{\Psi(x,t)}^2\dd x &= \int_{-\infty}^\infty x\pdv{}{x}\qty[\frac{i\hbar}{2m}\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)]\dd x\\
+    &= \frac{i\hbar}{2m}\int_{-\infty}^\infty x\pdv{}{x}\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)\dd x
+\end{align*}
+Integration-by-parts leads to
+\begin{align*}
+    -\frac{i\hbar}{2m}\int_{-\infty}^\infty \dv{x}{x}\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)\dd x + x\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)\eval_{-\infty}^{\infty}
+\end{align*}
+where the last term on the right, again, goes to zero due to the wave function's being normalizable. We are now left with just the integral on the left. Did not like integration-by-parts? Guess what, we are going to do it again!
+\begin{align*}
+    -\frac{i\hbar}{2m}\int_{-\infty}^\infty \dv{x}{x}\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)\dd x 
+    &= -\frac{i\hbar}{2m}\int_{-\infty}^\infty \Psi^* \pdv{\Psi}{x}-\pdv{\Psi^*}{x}\Psi \dd x \\
+    &= \frac{i\hbar}{2m}\qty(\int_{-\infty}^\infty -\Psi^* \pdv{\Psi}{x}\dd x+\int_{-\infty}^\infty \Psi \pdv{\Psi^*}{x}\dd x) \\
+     &= \frac{i\hbar}{2m}\qty(\int_{-\infty}^\infty -\Psi^* \pdv{\Psi}{x}\dd x+\int_{-\infty}^\infty -\Psi^* \pdv{\Psi}{x}\dd x+\Psi\Psi^*\eval_{-\infty}^{\infty}) \\
+     &= \frac{i\hbar}{2m}\qty(\int_{-\infty}^\infty -2\Psi^* \pdv{\Psi}{x}\dd x)\\
+     &= \frac{-i\hbar}{m}\qty(\int_{-\infty}^\infty \Psi^* \pdv{\Psi}{x}\dd x)
+\end{align*}
+One last time, $\Psi(x,t)$ goes to zero as $x$ approaches $\pm$ infinity. Hence, we have arrived at what is labelled as Equation [31] in my edition of the book.
+\begin{equation}
+    \dv{\expval{x}}{t}=-\frac{i\hbar}{m}\int\Psi^*\pdv{\Psi}{x}\dd x
+\end{equation}
+That is,
+\begin{equation}
+    \expval{v}=\dv[]{\expval{x}}{t}=-\frac{i\hbar}{m}\int\Psi^*\pdv{\Psi}{x}\dd x
+\end{equation}
+And you know what, I am starting to understand why Griffiths does not write out every last step.
+It is a well known fact that the momentum is $p = mv$. It is only natural that
+\begin{align}
+    \expval{p} = m\expval{v} = -i\hbar\int\Psi^*\pdv{\Psi}{x}\dd x
+\end{align}
+
+\subsection{Ehrenfest's theorem (problem 7)}
