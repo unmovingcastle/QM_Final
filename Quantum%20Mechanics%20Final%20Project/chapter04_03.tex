@@ -1,0 +1,11 @@
+\section{Angular Momentum}
+Here is a lengthier version of footnote 31 on page 159 (third edition): Formally, 
+\begin{align*}
+    \expval{L^2} &= \expval{L_x^2} + \expval{L_y^2} + \expval{L_z^2}\\ 
+    &= \braket{f}{L_x^2f} + \braket{f}{L_y^2f} + \braket{f}{L_z^2f} \\
+    &= \braket{L_xf}{L_xf} + \braket{L_yf}{L_yf} + \braket{L_zf}{L_zf}
+\end{align*}
+where the last equation is true since $L_x$, $L_y$, and $L_z$ are all observables (and are hence hermitian). Now, for any functions in Hilbert space, its inner product with itself is non-negative; as well, note that $\braket{L_zf}{L_zf} = \braket{\mu f}{\mu f} = \mu^2 \braket{f}{f} = \mu^2$ since $f$ is normalized. 
+\begin{equation*}
+    \therefore \expval{L^2} = \braket{f}{L^2f} = \lambda = \expval{L_x^2} + \expval{L_y^2} + \mu^2 \geq \mu^2 \iff \boxed{\lambda \geq \mu^2}
+\end{equation*}

@@ -1,0 +1,75 @@
+\section{Normalization}
+
+\textit{The Schrödinger equation has the remarkable property that it automatically preserves the normalization of the wave function}. Suppose the wave function is normalized at time $t=0$, it will stay normalized. Suppose we already have a normalized wave function $\Psi(x,t)$ so that 
+\begin{equation*}
+    \int_{-\infty}^{\infty}\abs{\Psi(x,t)}^2\dd x = 1
+\end{equation*}
+Saying that the above integral will stay normalized is equivalent to saying that the time derivative of the \tooltip{LHS}{Left Hand Side} is zero (i.e. constant in time). So we are going to prove the following relation
+\begin{equation}
+    \dv[]{}{t}\int_{-\infty}^{\infty}\abs{\Psi(x,t)}^2\dd x = 0
+    \label{eq:1_4_1}
+\end{equation}
+To begin with,
+\begin{equation*}
+    \dv[]{}{t}\int_{-\infty}^{\infty}\abs{\Psi(x,t)}^2\dd x = \int_{-\infty}^{\infty}\pdv{}{t}\abs{\Psi(x,t)}^2\dd x 
+\end{equation*}
+By the product rule,
+\begin{equation*}
+    \pdv{}{t}\abs{\Psi}^2 = \pdv{t}(\Psi^*\Psi) = \Psi^*\pdv{\Psi}{t}+\pdv{\Psi^*}{t}\Psi
+\end{equation*}
+From the \tooltip{Schrödinger equation}
+{
+\parbox{10cm}{
+\begin{equation*}
+    \setlength{\jot}{13pt}
+    \begin{aligned}
+            i\hbar\pdv{\Psi}{t} &= -\frac{\hbar^2}{2m}\pdv[2]{\Psi}{x}+V\Psi \\
+    \implies-\hbar \pdv{\Psi}{t} &= \frac{-i\hbar^2}{2m}\pdv[2]{\Psi}{x}+Vi\Psi\\
+    \implies-\pdv{\Psi}{t} &= \frac{-i\hbar}{2m}\pdv[2]{\Psi}{x}+\frac{Vi}{\hbar}\Psi\\
+    \end{aligned}
+\end{equation*}
+}
+}, we can derive the following
+\begin{equation}
+    \pdv{\Psi}{t} = \frac{i\hbar}{2m}\pdv[2]{\Psi}{x}-\frac{i}{\hbar}V\Psi
+    \label{eq:1_4_2}
+\end{equation}
+And the complex conjugate of the above equation is
+\begin{equation}
+    \pdv{\Psi^*}{t} = -\frac{i\hbar}{2m}\pdv[2]{\Psi^*}{x}+\frac{i}{\hbar}V\Psi^*
+    \label{eq:1_4_3}
+\end{equation}
+Thus, finishing the product rule,
+\begin{equation*}
+\setlength{\jot}{13pt}
+\begin{aligned}
+        \pdv{}{t}\abs{\Psi}^2 &= \Psi^*\pdv{\Psi}{t}+\pdv{\Psi^*}{t}\Psi = \Psi^*\cdot\qty(\frac{i\hbar}{2m}\pdv[2]{\Psi}{x}-\frac{i}{\hbar}V\Psi)+\Psi\qty(-\frac{i\hbar}{2m}\pdv[2]{\Psi^*}{x}+\frac{i}{\hbar}V\Psi^*) \\
+        &= \frac{i\hbar}{2m}\qty(\Psi^*\pdv[2]{\Psi}{x}-\pdv[2]{\Psi^*}{x}\Psi) = \pdv{}{x}\qty[\frac{i\hbar}{2m}\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)]
+\end{aligned} 
+\end{equation*}
+If one so desires, the last step above can be easily \tooltip{confirmed}{
+\parbox{10cm}{
+\begin{align*}
+    &\pdv{}{x}\qty[\frac{i\hbar}{2m}\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)] 
+    \\&= \frac{i\hbar}{2m}\qty[\qty(\pdv{\Psi^*}{x}\pdv{\Psi}{x}+\Psi^*\pdv[2]{\Psi}{x})-\qty(\pdv[2]{\Psi^*}{x}\Psi+\pdv{\Psi^*}{x}\pdv{\Psi}{x})]
+    \\&=\frac{i\hbar}{2m}\qty(\Psi^*\pdv[2]{\Psi}{x}-\pdv[2]{\Psi^*}{x}\Psi)
+\end{align*}
+}
+} by applying the product rule, i.e. going from RHS to LHS.
+Now that we have established the equation 
+\begin{equation}
+    \pdv{}{t}\abs{\Psi}^2  = \pdv{}{x}\qty[\frac{i\hbar}{2m}\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)],
+    \label{eq:1_4_4}
+\end{equation}
+the integral in Equation \ref{eq:1_4_1} can be evaluated
+\begin{align*}
+    &\dv{t}\int_{-\infty}^{\infty}\abs{\Psi(x,t)}^2\dd x\\
+    &= 
+    \int_{-\infty}^{\infty}\pdv{t}\abs{\Psi(x,t)}^2\dd x 
+    \\&=
+    \int_{-\infty}^{\infty}\pdv{x}\qty[\frac{i\hbar}{2m}\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)]\dd x\\
+    &= \frac{i\hbar}{2m}\qty(\Psi^*\pdv[]{\Psi}{x}-\pdv[]{\Psi^*}{x}\Psi)\eval_{-\infty}^{\infty}\\
+    &=0
+\end{align*}
+The last equation above holds because the wave function $\Psi(x,t)$ must go to zero as $x$ approaches $\pm$ infinity for the wave function to be normalizable. As such, we have shown that the time derivative of the integral is constant, i.e. the normalization will not be affected by time. 
+

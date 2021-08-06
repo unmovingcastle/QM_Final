@@ -1,0 +1,70 @@
+\section{The Free Particle}
+Another way to express Equation [96] in the book (the de Broglie Formula) is as follows:
+\begin{equation*}
+    p = \frac{h}{\lambda} = \frac{2\pi\hbar}{\lambda} = 2\pi\hbar\frac{k}{2\pi} = \hbar k
+\end{equation*}
+\subsection{phase velocity and group velocity: Griffiths}
+When deriving the expression for group velocity near the end of the Free Particle section (before Equation [105]), Griffiths starts with 
+\begin{equation}
+    \Psi(x,t) \cong \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} \phi(k_0 + s) e^{i[(k_0+s)x - (\omega_0+\omega_0's)t]}\,\dd s
+    \label{eq:2_4_1}
+\end{equation}
+and goes to 
+\begin{equation}
+    \Psi(x,t) \cong \frac{1}{\sqrt{2\pi}}
+    e^{i(- \omega_0 t +k_0\omega_0't)}
+    \int_{-\infty}^{\infty} \phi(k_0 + s) e^{i(k_0+s)(x-\omega_0't)}\,\dd s
+    \label{eq:2_4_2}
+\end{equation}
+in a single step. Below is a lengthier derivation.
+\np
+Starting from Equation [100] in the book,
+\begin{equation}
+    \Psi(x,t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \phi(k)e^{i(kx-\frac{\hbar k^2}{2m}t)}\dd k
+    \label{eq:2_4_3}
+\end{equation}
+And, as given in the book, $\omega$ (the dispersion relation) is 
+\begin{equation*}
+    \omega(k) = \frac{\hbar k^2}{2m} \implies 
+    \begin{dcases}
+    \omega_0 = \frac{\hbar k_0^2}{2m} \\
+    \omega_0' = \dv{\omega}{k}\eval_{k=k_0} = \frac{\hbar k_0}{m}
+    \end{dcases} 
+\end{equation*}
+Now, the Taylor expansion (around the point $k= k_0$) of the dispersion relation is approximately
+\begin{equation*}
+    \omega(k) \approx \omega_0 + \omega_0'\cdot(k-k_0)
+\end{equation*}
+and if we define $s \equiv k - k_0$, then $\dd s = \dd k$ and, following Equation \ref{eq:2_4_3},
+\begin{equation}
+    \Psi \cong \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \phi(k_0+s)\exp[i(s+k_0)x-i\omega t] \dd s
+    \label{eq:2_4_4}
+\end{equation}
+which is equivalent to Equation \ref{eq:2_4_1} and is where we shall ``start''.
+\newpage\noindent
+The terms inside the exponential function from Equation \ref{eq:2_4_4} is
+\begin{align*}
+    isx + i k_0 x - i\omega t &\approx isx + i k_0 x - i [\omega_0 + \omega_0'\cdot(k-k_0) ]t \\
+    &=i(k-k_0)x + ik_0x- i \qty[\frac{\hbar k_0^2}{2m} + \frac{\hbar k_0}{m}\cdot (k-k_0) ]t \\
+    &= ikx - i\frac{\hbar k_0^2}{2m}t - i\frac{\hbar k_0}{m}(k-k_0)t \\
+    &= ikx - i\frac{\hbar k_0^2}{2m}t - i\frac{\hbar k_0}{m}kt + i \frac{\hbar k_0^2}{m}t \\
+    &= ik\qty(x-\frac{\hbar k_0}{m}t) + i\qty(-\frac{\hbar k_0^2}{2m} + \frac{\hbar k_0^2}{m})t \\
+    &= i (s+k_0)\qty(x-\omega_0't) + i \qty(-\omega_0 + \omega_0' k_0) t
+\end{align*}
+so the exponential function from Equation \ref{eq:2_4_4} is 
+\begin{align*}
+    \exp[i(s+k_0)x-i\omega t] &= \exp[i (s+k_0)\qty(x-\omega_0't) + i \qty(-\omega_0 + \omega_0' k_0) t] \\
+    &= \exp[i(s+k_0)(x-\omega_0't)] \cdot \exp[i(-\omega_0+\omega_0'k_0)t]
+\end{align*}
+Thus, \tooltip{Equation \ref{eq:2_4_4}}{\parbox{10cm}{
+\begin{equation*}
+    \Psi \cong \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \phi(k_0+s)\exp[i(s+k_0)x-i\omega t] \dd s
+\end{equation*}}}
+is the same as
+\begin{equation*}
+    \Psi \cong \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty \phi(k_0+s)\exp[i(s+k_0)(x-\omega_0't)] \cdot \exp[i(-\omega_0+\omega_0'k_0)t]\dd s
+\end{equation*}
+Since $\omega_0$, $\omega_0'$ and $k_0$ are all constants (and we are integrating with respect to $s$), the second exponential term can be taken out of the integral; thus we finally arrive at
+\begin{equation*}
+    \Psi \cong \frac{1}{\sqrt{2\pi}} e^{i(-\omega_0+k_0\omega_0')t}\int_{-\infty}^\infty \phi(k_0+s)e^{i(s+k_0)(x-\omega_0't)} \dd s~~\qed
+\end{equation*}

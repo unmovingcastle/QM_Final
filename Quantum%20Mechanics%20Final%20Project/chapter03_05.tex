@@ -1,0 +1,70 @@
+\section{The Uncertainty Principle}
+
+\setcounter{subsection}{2}
+\subsection{the energy-time uncertainty principle: product rule?}
+When deriving the \textbf{generalized Ehrenfest theorem} (page 110 in the third edition), we encounter something rather curious (to me at least). To begin with,
+\begin{equation*}
+    \dv{t}\expval{Q} = \dv{t}\braket{\Psi}{\hat{Q}\Psi}
+\end{equation*}
+And, applying the product rule, we obtain
+\begin{equation*}
+    \dv{t}\expval{Q} = \braket{\dv{\Psi}{t}}{\hat{Q}\Psi} + \braket{\Psi}{\dv{t}(\hat{Q}\Psi)}
+\end{equation*}
+But what in the world exactly is $\dv{t}(\hat{Q}\Psi)$? Previously we had all agreed that something of the form $\hat{A}\hat{B}f$ means operator $\hat{B}$ acts on function $f$, and \textit{then} operator $\hat{A}$ acts on whatever $\hat{B}f$ spits out. By the same token, $\dv{t}(\hat{Q}\Psi)$ should be the same as $\dv{t}\hat{Q}\Psi$ and not (apply product rule again) $\dv{\hat{Q}}{t}\Psi + \hat{Q}\dv{\Psi}{t}$, right? After all, what the heck does it mean to take the time derivative of an operator? If you also agree with this line of reasoning we would probably be good friends, but we would also be wrong, and $\dd{\hat{Q}}/\dd{t}$ \textit{does} mean something. Below is an example.
+\np
+Let $f = f(x,t)$ and \,$\hat{Q} = t\pdv*{x}$, then
+\begin{equation*}
+    \pdv{(\hat{Q}f)}{t} = \qty(\pdv{\hat{Q}}{t})\cdot f+ \hat{Q}\cdot \pdv{f}{t}
+\end{equation*}
+What exactly does $\pdv{\hat{Q}}{t}$ mean? It turns out that we can invoke the product rule as usual to find that it is none other than
+\begin{equation*}
+    \pdv{\hat{Q}}{t}=\pdv{t}{t}\pdv{x} + t\pdv{t}(\pdv{x})=1\times \pdv{x} + t\times 0 = \pdv{x}
+\end{equation*}
+since $\pdv*{x}$ does not depend on $t$
+(as illegal as it might seem). We can also evaluate $\pdv{\hat{Q}f}{t}$ another way (let $g$ represent $\dv*{f}{x}$)
+\begin{equation*}
+    \setlength{\jot}{10pt}
+    \begin{aligned}
+    \pdv{t}(\hat{Q}f) = \pdv{t}\qty[t\cdot\pdv{x}f(x,t)] &= \pdv{t}\qty[t\cdot g(x,t)] \\
+    &=\pdv{t}{t}\cdot g + t \cdot \pdv{g}{t}\\
+    &= g + t\pdv{g}{t}  \\
+    &= \pdv{f}{x} + t \pdv{t}(\pdv{f}{x})\\
+    &= \pdv{x}\,f + t \pdv{x}\pdv{f}{t}
+    \end{aligned}
+\end{equation*}
+At this point, we see that if we agree that $\pdv{\hat{Q}}{t} = \pdv{x}$, then 
+\begin{equation*}
+    \pdv{t}(\hat{Q}f) = \pdv{x} f + t\pdv{x}\pdv{f}{t} = \pdv{\hat{Q}}{t}f + \hat{Q}\pdv{f}{t} 
+\end{equation*}
+From the result above, we see that to find the time derivative of $\hat{Q}f$, we can indeed treat $\hat{Q}$ as if it is an ordinary function of $t$ and apply product rule as usual,
+\begin{equation*}
+    \pdv{t}(\hat{Q}f) =\qty(\pdv{\hat{Q}}{t}) f + \hat{Q}\pdv{f}{t} 
+\end{equation*}
+which necessarily requires us to find the time derivative of $\hat{Q}$ --- however unpleasant that might make us feel --- which, in turn, can be found by treating things (operators) such as $\dv*{x}$ as if they are ordinary functions; for example, $\dv{t}(\dv{x}) = 0$.
+\vspace{5mm}
+\hrule
+\vspace{5mm}\noindent
+The example is adapted from the one provided by user ``wohtp'' on the physics forum of PTT:
+https://www.ptt.cc/bbs/Physics/M.1624694131.A.951.html\\\noindent
+Below is a more general discussion, provided by user ``ocf001497'' under the same discussion thread.
+\nl
+To understand what $\pdv{t}\hat{Q}\Psi$ is, let us first define
+\begin{equation*}
+    \begin{dcases}
+    \hat{A} = \pdv{t}\\
+    \hat{B} = \hat{Q}
+    \end{dcases}
+\end{equation*}
+Here, we still assume that $\hat{A}\hat{B}\Psi$ means that $\hat{B}$ acts on $\Psi$ first, and then $\hat{A}$ acts on whatever $\hat{B}\Psi$ turns out to be (i.e. what we have always been doing). Now, suppose we have some general function $f$, and we rewrite $\hat{A}\hat{B}f$ as
+ \begin{equation*}
+     \hat{A}\hat{B}f = \qty(\hat{A}\hat{B} - \hat{B}\hat{A} + \hat{B}\hat{A})f = \qty[\hat{A},\hat{B}]f + \hat{B}\hat{A}f
+ \end{equation*}
+The commutator is
+ \begin{equation*}
+     \qty[\hat{A},\hat{B}] f = \pdv{t}\qty(\hat{Q}f) - \hat{Q}\qty(\pdv{f}{t}) = \qty(\pdv{\hat{Q}}{t})f +\qty(\pdv{f}{t})\hat{Q}-\hat{Q}\qty(\pdv{f}{t}) = \qty(\pdv{\hat{Q}}{t})f
+ \end{equation*}
+ Therefore,
+ \begin{equation*}
+     \hat{A}\hat{B}f = \qty(\pdv{\hat{Q}}{t})f + \hat{B}\hat{A}f = \qty(\pdv{\hat{Q}}{t})f +\hat{Q}\qty(\pdv{f}{t})
+ \end{equation*}
+ Here, we see that the way we have been interpreting $\hat{A}\hat{B}f$ does not conflict with the application of the product rule. The explanations above are somewhat circular in nature, but hopefully they are nonetheless helpful. In any case, it is important to note that if $\hat{Q}$ depends on time, then $\hat{Q}$ is really an operator-valued \textit{function}; and, to find the time-derivative of this function, we apply product rule as usual.

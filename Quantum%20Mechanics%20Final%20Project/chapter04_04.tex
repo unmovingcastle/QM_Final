@@ -1,0 +1,32 @@
+\section{Spin}
+
+\subsection{spin 1/2}
+Near the end of the spin-1/2 subsection (page 169, third edition) we have Equation [152]
+\begin{equation*}
+    \chi = \qty(\frac{a+b}{\sqrt{2}})\chi_+^{(x)} + \qty(\frac{a-b}{\sqrt{2}})\chi_-^{(x)}
+\end{equation*}
+coming out of nowhere. Below is some more explanation.\\
+At the beginning of this section we saw that
+\begin{equation*}
+    \chi = a\chi_+ + b\chi_- = a\ket{\uparrow} + b\ket{\downarrow} = a\mqty[1\\0] + b\mqty[0\\1]
+\end{equation*}
+Right before Equation [152] we also saw that
+\begin{equation*}
+    \begin{dcases}
+    \chi_+^{(x)} = \mqty(1/\sqrt{2}\\1/\sqrt{2})\\
+    \chi_-^{(x)} = \mqty(1/\sqrt{2}\\-1/\sqrt{2})
+    \end{dcases}
+\end{equation*}
+Now, to create $\ket{\uparrow}$ we need to have the second element in the column vector to be zero, so we add $\chi_+^{(x)}$ and $\chi_-^{(x)}$, and then we multiply the result with some number to make the first element 1, as shown below:
+\begin{equation*}
+    \chi_+^{(x)} + \chi_-^{(x)} = \mqty(1/\sqrt{2}\\1/\sqrt{2}) + \mqty(1/\sqrt{2}\\-1/\sqrt{2}) = \mqty(2/\sqrt{2}\\0) \iff \frac{\chi_+^{(x)} + \chi_-^{(x)}}{\sqrt{2}} = \mqty(1\\0) = \chi_+ = \ket{\uparrow}
+\end{equation*}
+Similarly,
+\begin{equation*}
+     \chi_+^{(x)} - \chi_-^{(x)} = \mqty(1/\sqrt{2}\\1/\sqrt{2}) - \mqty(1/\sqrt{2}\\-1/\sqrt{2}) = \mqty(0\\2/\sqrt{2}) \iff \frac{\chi_+^{(x)} - \chi_-^{(x)}}{\sqrt{2}} = \mqty(0\\1) = \chi_- = \ket{\downarrow}
+\end{equation*}
+Therefore, the equation $\chi = a\ket{\uparrow} + b\ket{\downarrow}$ is exactly the same as
+\begin{equation*}
+    \chi = a \cdot \frac{\chi_+^{(x)} + \chi_-^{(x)}}{\sqrt{2}} + b \cdot \frac{\chi_+^{(x)} - \chi_-^{(x)}}{\sqrt{2}} = \chi = \qty(\frac{a+b}{\sqrt{2}})\chi_+^{(x)} + \qty(\frac{a-b}{\sqrt{2}})\chi_-^{(x)} ~~\qed
+\end{equation*}
+as promised.

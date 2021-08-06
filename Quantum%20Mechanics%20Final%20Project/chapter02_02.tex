@@ -1,0 +1,19 @@
+\section{The Infinite Square Well}
+\subsection{double summation}
+If the double summation near the end of this section (the proof that $\sum\abs{c_n}^2=1$) makes you uncomfortable, here is a less compact explanation.
+\begin{align*}
+    1 = &\int\abs{\Psi(x,0)}^2\dd x = \int\qty(\sum_{m=1}^\infty c_m\psi_m(x))^*\qty(\sum_{n=1}^\infty c_n\psi_n(x))\dd x \\
+    =&\int(c_1^*\psi_1^*+c_2^*\psi_2^*+c_3^*\psi_3^*+...)(c_1\psi_1+c_2\psi_2+c_3\psi_3+...) \dd x\\
+    =&~c_1^*c_1\int\psi_1^*\psi_1\dd x + c_1^*c_2\int\psi_1^*\psi_2 \dd x+ c_1^*c_3\int\psi_1^*\psi_3 \dd x + ... \\
+    &~c_2^*c_1\int\psi_2^*\psi_1\dd x+c_2^*c_2\int\psi_2^*\psi_2\dd x+c_2^*c_3\int\psi_2^*\psi_3\dd x+... \\
+    &~c_3^*c_1\int\psi_3^*\psi_1\dd x+c_3^*c_2\int\psi_3^*\psi_2\dd x+c_3^*c_3\int\psi_3^*\psi_3\dd x+...
+\end{align*}
+Now if we add vertically down the columns, we obtain
+\begin{equation*}
+    \sum_{m=1}^\infty c_m^* c_1 \int \psi_m^*\psi_1 \dd x + \sum_{m=1}^\infty c_m^* c_2 \int \psi_m^*\psi_2 \dd x + \sum_{m=1}^\infty c_m^* c_3 \int \psi_m^*\psi_3 \dd x +...
+\end{equation*}
+which is equivalent to
+\begin{equation*}
+    \sum_{n=1}^\infty\sum_{m=1}^\infty c_m^*c_n\int\psi_m^*\psi_n\dd x = \sum_{n=1}^\infty\sum_{m=1}^\infty c_m^*c_n\delta_{mn}= \sum_{n=1}^\infty\abs{c_n}^2
+\end{equation*}
+as promised.

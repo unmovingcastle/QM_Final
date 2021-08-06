@@ -1,0 +1,49 @@
+\documentclass[12pt]{report}
+% \documentclass[12pt,letterpaper]{article}
+\usepackage{preamble}
+
+% \newcommand\course{}
+% \newcommand\hwnumber{}
+% \newcommand\userID{Jason Yao}
+% \newcommand\collaborator{V. Houh, G. Summermatter}
+\newcommand{\sectionbreak}{\clearpage}
+\newcommand*\mean[1]{\overline{#1}}
+\newcommand\np{\vspace{0.5cm}\\} % as in "next point"
+\newcommand\nl{\vspace{5mm}\hrule\vspace{5mm}\noindent} % as in "new line"
+
+\title{Compilation of Proofs}
+\author{Jason Yao}
+\date{June 9, 2021}
+
+
+\graphicspath{{Images/}}
+\setcounter{tocdepth}{3}
+
+\begin{document}
+
+\maketitle
+
+\numberwithin{equation}{section}
+
+\tableofcontents
+
+\vfill
+This document contains \tooltip{tooltips}{
+\parbox{10cm}
+{ The end-all-be-all equation: 
+\begin{equation*}
+    i\hbar\pdv{\Psi}{t}=-\frac{\hbar^2}{2m}\pdv[2]{\Psi}{x}+V\Psi
+\end{equation*}
+}}. Please use Adobe Reader to view them. You can also drag them around.
+
+
+
+
+\input{chapter01}
+\input{chapter02}
+\input{chapter03}
+\input{chapter04}
+
+
+\end{document}
+

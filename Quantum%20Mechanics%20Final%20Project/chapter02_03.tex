@@ -1,0 +1,90 @@
+\section{The Harmonic Oscillator}
+\subsection{algebraic method}
+Here is a short proof of Equation [55] in the book:
+\begin{equation*}
+    [a_-,a_+] = (a_-a_+)-(a_+a_-) = \frac{1}{\hbar\omega}H+\frac{1}{2} - \frac{1}{\hbar\omega}-\frac{1}{2} = 1 \qed
+\end{equation*}
+\hrule \vspace{5mm}\noindent
+Attached next page is a pdf file of page 43 with some arrows to draw connections.
+\includepdf[]{pdf_2_3_1_1}
+
+\noindent
+Equation [65] in the book states that
+\begin{equation*}
+    \boxed{ a_+a_-\psi_n = n\psi_n,~~a_-a_+\psi_n = (n+1)\psi_n }
+\end{equation*}
+Here is a proof. From Equations [57] and [61] in the book, we have
+\begin{align*}
+\begin{dcases}
+\hbar\omega(a_\pm a_\mp\pm\frac{1}{2})\psi_n = E_n\psi_n \\
+\psi_n = A_n(a_+)^n\psi_0;~~E_n = \qty(n+\frac{1}{2})\hbar\omega    
+\end{dcases}
+\end{align*}
+Substituting the expression for $E_n$ into the first case above, we arrive at
+\begin{align*}
+    \begin{dcases}
+    \hbar\omega\qty(a_+a_-+\frac{1}{2}\psi_n) = \qty(n+\frac{1}{2})\hbar\omega\psi_n\\
+    \hbar\omega\qty(a_-a_+-\frac{1}{2}\psi_n) = \qty(n+\frac{1}{2})\hbar\omega\psi_n
+    \end{dcases}
+\end{align*}
+cancel out $\hbar\omega$ and move the $1/2 \psi_n$ terms to the RHS to obtain
+\begin{align*}
+    \begin{dcases}
+    a_+a_-\psi_n = n\psi_n \\
+    a_-a_+\psi_n = (n+1)\psi_n\qed
+    \end{dcases}
+\end{align*}
+
+
+
+\subsection{analytic method}
+As stated at the beginning of this subsection, the Schrödinger equation is equivalent to 
+\begin{equation*}
+    \boxed{\dv[2]{\psi}{\xi} = (\xi^2-K)\psi}
+\end{equation*}
+where $K \equiv 2E/\hbar\omega$, and here is a proof. First note that 
+\begin{equation*}
+    \xi\equiv\sqrt{\frac{m\omega}{\hbar}}x \implies\dv[]{\xi}{x}=\sqrt{\frac{m\omega}{\hbar}}
+\end{equation*}
+The Schrödinger equation (with harmonic oscillator potential) says that
+\begin{equation*}
+    -\frac{\hbar^2}{2m}\dv[2]{\psi}{x}+\frac{1}{2}m\omega^2x^2\psi=E\psi
+\end{equation*}
+Now rewrite the second derivative with respect to $x$ as
+\begin{equation*}
+    \dv{x}\qty(\dv[]{\psi}{x}) = \dv{\xi}\dv{\xi}{x}\qty(\dv{\xi}\dv{\xi}{x}\psi) =\sqrt{\frac{m\omega}{\hbar}}\dv{\xi}\qty(\sqrt{\frac{m\omega}{\hbar}}\dv{\psi}{\xi}) = \frac{m\omega}{\hbar}\dv[2]{\psi}{\xi}
+\end{equation*}
+so the S.E. becomes
+\begin{equation*}
+    -\frac{\hbar^2}{2m}\frac{m\omega}{\hbar}\dv[2]{\psi}{\xi} + \frac{1}{2}m\omega^2x^2\psi = E\psi \iff -\frac{\hbar^2}{2m}\frac{m\omega}{\hbar}\dv[2]{\psi}{\xi}+\frac{1}{2}m\omega^2\frac{\hbar}{m\omega}\xi^2\psi=E\psi
+\end{equation*}
+cancel things out and multiply both sides by $-2/\hbar\omega$,
+\begin{equation*}
+    -\frac{2}{\hbar\omega}\times\qty(\frac{-\hbar\omega}{2}\dv[2]{\psi}{\xi}+\frac{1}{2}\hbar\omega\xi^2\psi=E\psi)
+\end{equation*}
+Therefore,
+\begin{equation*}
+    \dv[2]{\psi}{\xi} = \qty(\xi^2-\frac{2E}{\hbar\omega})\psi = (\xi^2-K)\psi \qed
+\end{equation*}
+\nl
+This subsection introduces the \textbf{recursion formula} (which is entirely equivalent to the Scrhödinger equation):
+\begin{equation*}
+    a_{j+2} = \frac{(2j+1-K)}{(j+1)(j+2)}a_j
+\end{equation*}
+where $h(\xi) = a_0 + a_1\xi + a_2\xi^2 + a_3\xi^3+...$ From this, we see that
+\begin{equation*}
+    a_{j+2} \approx\frac{2}{j}a_j
+\end{equation*}
+for large $j$. Griffiths states here that, as a result, $h(\xi) \propto \exp(\xi^2)$; hence the series $h(\xi)$ must \textit{terminate}. Here is a slightly different explanation: The function $\exp(\xi^2)$ can be expressed as
+\begin{equation*}
+    \exp(\xi^2) = 1 + \xi^2 + \frac{\xi^4}{2!} + \frac{\xi^6}{3!} + ... = \sum_{j = 0, 2, 4}^\infty b_j \xi^j ~~~,~~~b_j = \frac{1}{(j/2)!}
+\end{equation*}
+Therefore, for large $j$,
+\begin{equation*}
+    \frac{b_{j+2}}{b_j} = \frac{(j/2)!}{[(j+2)/2]!} = \frac{1}{(j+2)/2}\approx\frac{2}{j}
+\end{equation*}
+Now, from above, $a_{j+2} \approx\frac{2}{j}a_j$ for large $j$, so
+\begin{equation*}
+    \frac{a_{j+2}}{a_j} \approx \frac{2}{j}
+\end{equation*}
+and we see that $a_j$ goes like $b_j$, so $h(\xi)$ indeed goes like $\exp(\xi^2)$ for large $j$. And if $h(\xi)$ goes like $\exp(\xi^2)$, then $\psi(\xi) = h(\xi)\exp(-\xi^2/2)$ goes like $\exp(\xi^2/2)$ which blows up as $\xi$ goes to infinity (not normalizable). Thus we conclude that $h(\xi)$ must terminate at some point (for if the series is finite then we need not worry about convergence).
